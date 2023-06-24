@@ -1,0 +1,38 @@
+﻿<Window x:Class="Gallery.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Gallery"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="650" Width="1100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.55*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <ListView x:Name="ImageList" ItemsSource="{Binding MyImages}" Grid.Column="0" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="ImageList_PreviewMouseLeftButtonUp">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Image x:Name="SelectedImg" HorizontalAlignment="Center"  Source="{Binding ImageUrl}" Width="200" Height="200"></Image>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.7*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Background="LightGray">
+                <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ShowImg" Stretch="Fill" Width="{Binding ElementName=sldWith, Path=Value}" Height="{Binding ElementName=sldHeight, Path=Value}" ></Image>
+            </Grid>
+            <StackPanel Grid.Row="1" >
+                <TextBlock HorizontalAlignment="Center" FontSize="17" >With</TextBlock>
+                <Slider x:Name="sldWith" Margin="3" Width="500" Maximum="400"  Value="200"  PreviewMouseMove="sldWith_PreviewMouseMove"></Slider>
+                <TextBlock HorizontalAlignment="Center" FontSize="17">Height</TextBlock>
+                <Slider x:Name="sldHeight" Margin="3" Width="500" Maximum="400"  Value="200" PreviewMouseMove="sldHeight_PreviewMouseMove"></Slider>
+                <CheckBox x:Name="BothAuto" Width="50" Checked="CheckBox_Checked">Both</CheckBox>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
