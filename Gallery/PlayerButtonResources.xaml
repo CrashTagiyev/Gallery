@@ -1,0 +1,114 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--listview style-->
+
+    <Style x:Key="ListView_Style" TargetType="ListView">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF5D5555" />
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!--Image show style-->
+    <Style x:Key="Image_Show_Grid_Style" TargetType="Grid">
+        <Setter Property="Background" >
+            <Setter.Value>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF5D5555"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!--control panel style-->
+    <Style x:Key="Control_Panel_Style" TargetType="StackPanel">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush  EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FF5D5555" Offset="1"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    
+    <!--Previous button resource-->
+    <ControlTemplate TargetType="Button" x:Key="Custom_PrevButton_Template">
+
+        <Grid x:Name="Previous_Button_Grid" Style="{StaticResource Image_Show_Grid_Style}">
+            
+            <Border BorderThickness="0.5" BorderBrush="Gray">
+               
+                <Image Stretch="Uniform" Source="https://cdn.discordapp.com/attachments/1039503518404456458/1126953113992036463/rewind-button.png"></Image>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Previous_Button_Grid" Property="Background" Value="LightBlue"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Height" Value="35"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
+    <!--stop button template-->
+    <ControlTemplate TargetType="Button" x:Key="Custom_StopButton_Template">
+
+        <Grid x:Name="Previous_Button_Grid" Style="{StaticResource Image_Show_Grid_Style}">
+            <Border BorderThickness="0.5" BorderBrush="Gray">
+                <Image Margin="0,0,10,0" Source="https://cdn.discordapp.com/attachments/1039503518404456458/1126953571863232532/pause.png"></Image>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Previous_Button_Grid" Property="Background" Value="LightBlue"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Height" Value="35"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--play button template-->
+    <ControlTemplate TargetType="Button" x:Key="Custom_PlayButton_Template">
+
+        <Grid x:Name="Previous_Button_Grid" Style="{StaticResource Image_Show_Grid_Style}">
+            <Border BorderThickness="0.5" BorderBrush="Gray">
+                <Image Source="https://cdn.discordapp.com/attachments/1039503518404456458/1126952707362664609/play-button-arrowhead.png"></Image>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Previous_Button_Grid" Property="Background" Value="LightBlue"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Height" Value="35"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!--next button template-->
+    <ControlTemplate TargetType="Button" x:Key="Custom_NextButton_Template">
+
+        <Grid x:Name="Previous_Button_Grid" Style="{StaticResource Image_Show_Grid_Style}">
+            <Border BorderThickness="0.5" BorderBrush="Gray">
+                <Image Source="https://cdn.discordapp.com/attachments/1039503518404456458/1126954182704906290/forward-button.png"></Image>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="Previous_Button_Grid" Property="Background" Value="LightBlue"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Height" Value="35"></Setter>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+</ResourceDictionary>

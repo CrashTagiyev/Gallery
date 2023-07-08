@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Gallery"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="PlayerButtonResources.xaml"></ResourceDictionary>
     </Application.Resources>
+
 </Application>

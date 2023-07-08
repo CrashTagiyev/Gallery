@@ -11,26 +11,34 @@
             <ColumnDefinition Width="0.55*"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <ListView x:Name="ImageList" ItemsSource="{Binding MyImages}" Grid.Column="0" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="ImageList_PreviewMouseLeftButtonUp">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <Image x:Name="SelectedImg" HorizontalAlignment="Center"  Source="{Binding ImageUrl}" Width="200" Height="200"></Image>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ScrollViewer>
+            <ListView x:Name="ImageList" Style="{StaticResource ListView_Style}" ItemsSource="{Binding MyImages}"   SelectedIndex="0" Grid.Column="0" HorizontalContentAlignment="Center" PreviewMouseLeftButtonUp="ImageList_PreviewMouseLeftButtonUp">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Image x:Name="SelectedImg" HorizontalAlignment="Center"  Source="{Binding ImageUrl}" Width="200" Height="200" ></Image>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
         <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="2.7*"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0" Background="LightGray">
+            <Grid Grid.Row="0" Style="{DynamicResource Image_Show_Grid_Style}">
                 <Image HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="ShowImg" Stretch="Fill" Width="{Binding ElementName=sldWith, Path=Value}" Height="{Binding ElementName=sldHeight, Path=Value}" ></Image>
             </Grid>
-            <StackPanel Grid.Row="1" >
+            <StackPanel Grid.Row="1" Style="{DynamicResource Control_Panel_Style}" >
+                <Grid Height="40">
+                    <Button Width="70" Template="{StaticResource Custom_PrevButton_Template}" Margin="0,0,320,0" Click="Prev_Button_Click"></Button>
+                    <Button Width="70" Template="{StaticResource Custom_StopButton_Template}" Margin="235,0,405,0" Click="Stop_Button_Click"/>
+                    <Button Width="70" Template="{StaticResource Custom_PlayButton_Template}" Margin="0,0,20,0" Click="Play_Button_Click"></Button>
+                    <Button Width="70" Template="{StaticResource Custom_NextButton_Template}" Margin="0,0,-130,0" Click="Next_Button_Click"></Button>
+                </Grid>
                 <TextBlock HorizontalAlignment="Center" FontSize="17" >With</TextBlock>
-                <Slider x:Name="sldWith" Margin="3" Width="500" Maximum="400"  Value="200"  PreviewMouseMove="sldWith_PreviewMouseMove"></Slider>
+                <Slider x:Name="sldWith" Margin="3" Width="500" Maximum="400"  Value="200"  ></Slider>
                 <TextBlock HorizontalAlignment="Center" FontSize="17">Height</TextBlock>
-                <Slider x:Name="sldHeight" Margin="3" Width="500" Maximum="400"  Value="200" PreviewMouseMove="sldHeight_PreviewMouseMove"></Slider>
+                <Slider x:Name="sldHeight" Margin="3" Width="500" Maximum="400"  Value="200" ></Slider>
                 <CheckBox x:Name="BothAuto" Width="50" Checked="CheckBox_Checked">Both</CheckBox>
             </StackPanel>
         </Grid>
